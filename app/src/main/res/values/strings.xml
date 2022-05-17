@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Activity Lifecycle</string>
+    <string name="headline">Main Activity</string>
+    <string name="headline2">Second Activity</string>
+    <string name="OnCreate1">OnCreate Main:</string>
+    <string name="OnResume1">OnResume Main:</string>
+    <string name="OnPause1">OnPause Main:</string>
+    <string name="OnStop1">OnStop Main:</string>
+    <string name="OnDestroy1">OnDestroy Main:</string>
+    <string name="counter">Display Counter</string>
+
+    <string name="button">Switch</string>
+
+
+</resources>
