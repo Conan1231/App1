@@ -8,7 +8,7 @@
     <string name="OnStop1">OnStop Main:</string>
     <string name="OnDestroy1">OnDestroy Main:</string>
     <string name="counter">Display Counter</string>
-
+    <string name="OnStart">OnStart Main:</string>
     <string name="button">Switch</string>
 
 

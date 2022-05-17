@@ -1,5 +1,6 @@
 package com.example.app1;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,44 +15,75 @@ public class MainActivity extends AppCompatActivity {
     int anzPause = 0;
     int anzStop = 0;
     int anzDestroy = 0;
+    int anzStart = 0;
+
+    LifeCycleCounter LCC = new LifeCycleCounter();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (savedInstanceState!=null){
+            LCC = (LifeCycleCounter) savedInstanceState.getParcelable("COUNTER");
+        }
         setContentView(R.layout.activity_main);
-        anzCreate++;
-        ((TextView)findViewById(R.id.tvCreate)).setText(""+anzCreate);
+        LCC.anzCreate++;
+        showLCC();
+    }
+
+    public void showLCC(){
+        ((TextView) findViewById(R.id.tvPause)).setText("" + LCC.anzPause);
+        ((TextView) findViewById(R.id.tvStart)).setText("" + LCC.anzStart);
+        ((TextView) findViewById(R.id.tvResume)).setText("" + LCC.anzResume);
+        ((TextView) findViewById(R.id.tvStop)).setText("" + LCC.anzStop);
+        ((TextView) findViewById(R.id.tvDestroy)).setText("" + LCC.anzDestroy);
+        ((TextView) findViewById(R.id.tvCreate)).setText("" + LCC.anzCreate);
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        LCC.anzStart++;
+        showLCC();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        anzPause++;
-        ((TextView)findViewById(R.id.tvPause)).setText(""+anzPause);
+        LCC.anzPause++;
+        showLCC();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        anzResume++;
-        ((TextView)findViewById(R.id.tvResume)).setText(""+anzResume);
+        LCC.anzResume++;
+       showLCC();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        anzStop++;
-        ((TextView)findViewById(R.id.tvStop)).setText(""+anzStop);
+        LCC.anzStop++;
+        showLCC();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        anzDestroy++;
-        ((TextView)findViewById(R.id.tvDestroy)).setText(""+anzDestroy);
+        LCC.anzDestroy++;
+        showLCC();
     }
 
-    public void wechsel(View v){
+
+    public void wechsel(View v) {
         Intent intent = new Intent(this, MainActivity2.class);
+        intent.putExtra("counter", LCC);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable("COUNTER",LCC);
     }
 }

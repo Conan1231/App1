@@ -7,10 +7,19 @@
     tools:context=".MainActivity2">
 
     <TextView
+        android:id="@+id/onCreate2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/OnStart"
+        app:layout_constraintStart_toStartOf="@+id/onCreate1"
+        app:layout_constraintTop_toBottomOf="@+id/onCreate1" />
+
+    <TextView
         android:id="@+id/onPause1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:text="@string/OnPause1"
         app:layout_constraintStart_toStartOf="@+id/onResume1"
         app:layout_constraintTop_toBottomOf="@+id/onResume1" />
@@ -19,7 +28,7 @@
         android:id="@+id/onStop1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:text="@string/OnStop1"
         app:layout_constraintStart_toStartOf="@+id/onPause1"
         app:layout_constraintTop_toBottomOf="@+id/onPause1" />
@@ -28,7 +37,7 @@
         android:id="@+id/onDestroy1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="36dp"
         android:text="@string/OnDestroy1"
         app:layout_constraintStart_toStartOf="@+id/onStop1"
         app:layout_constraintTop_toBottomOf="@+id/onStop1" />
@@ -59,10 +68,19 @@
         android:id="@+id/tvCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="60dp"
         android:text="@string/counter"
         app:layout_constraintStart_toEndOf="@+id/onCreate1"
         app:layout_constraintTop_toTopOf="@+id/onCreate1" />
+
+    <TextView
+        android:id="@+id/tvStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:text="@string/counter"
+        app:layout_constraintStart_toEndOf="@+id/onCreate2"
+        app:layout_constraintTop_toTopOf="@+id/onCreate2" />
 
     <TextView
         android:id="@+id/tvResume"
@@ -86,7 +104,7 @@
         android:id="@+id/onResume1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="48dp"
         android:text="@string/OnResume1"
         app:layout_constraintStart_toStartOf="@+id/onCreate1"
         app:layout_constraintTop_toBottomOf="@+id/onCreate1" />
